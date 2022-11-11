@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebAPI_Core_Client_Malkin
+namespace WebAPI_Core_Client_Malkin.Models
 {
     public class Game
     {
