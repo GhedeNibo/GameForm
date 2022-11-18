@@ -12,11 +12,26 @@ namespace WebAPI_Core_Client_Malkin
 {
     public partial class Main : Form
     {
-        private const string APP_PATH = "http://192.168.43.192:33833";
+        private const string APP_PATH = "http://192.168.1.66:33833";
+        static public User currentUser;
         public Main()
         {
-            InitializeComponent();
+            Login loginForm = new Login();
+            loginForm.Owner = this;
+            if(loginForm.ShowDialog() != DialogResult.OK)
+            {
+                loginForm.Close();
+                Main main = new Main();
+                main.Close();
+            }
+            else
+            {
+                InitializeComponent();
+            }
+          
+            lbLogin.Text = currentUser.Login;
             btnReload_Click(null, null);
+            
         }
       
         private void btnReload_Click(object sender, EventArgs e)
