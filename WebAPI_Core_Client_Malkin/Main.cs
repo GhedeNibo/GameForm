@@ -16,21 +16,17 @@ namespace WebAPI_Core_Client_Malkin
         static public User currentUser;
         public Main()
         {
+            InitializeComponent();
+            btnReload_Click(null, null);
+
             Login loginForm = new Login();
             loginForm.Owner = this;
-            if(loginForm.ShowDialog() != DialogResult.OK)
+            
+            if(loginForm.ShowDialog() == DialogResult.OK)
             {
                 loginForm.Close();
-                Main main = new Main();
-                main.Close();
+                lbLogin.Text = currentUser.Login;
             }
-            else
-            {
-                InitializeComponent();
-            }
-          
-            lbLogin.Text = currentUser.Login;
-            btnReload_Click(null, null);
             
         }
       
