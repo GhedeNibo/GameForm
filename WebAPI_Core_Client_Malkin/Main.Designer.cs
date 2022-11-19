@@ -33,12 +33,15 @@ namespace WebAPI_Core_Client_Malkin
             this.dgvTable = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.lbLogin = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.таблицыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -69,7 +72,8 @@ namespace WebAPI_Core_Client_Malkin
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.таблицыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(884, 24);
@@ -79,17 +83,10 @@ namespace WebAPI_Core_Client_Malkin
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
             this.toolStripMenuItem3});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(103, 20);
             this.toolStripMenuItem1.Text = "Учетная запись";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(109, 22);
-            this.toolStripMenuItem2.Text = "Войти";
             // 
             // toolStripMenuItem3
             // 
@@ -101,6 +98,7 @@ namespace WebAPI_Core_Client_Malkin
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.button2);
@@ -111,7 +109,7 @@ namespace WebAPI_Core_Client_Malkin
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(16, 61);
+            this.btnDelete.Location = new System.Drawing.Point(16, 91);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(130, 23);
             this.btnDelete.TabIndex = 4;
@@ -121,7 +119,7 @@ namespace WebAPI_Core_Client_Malkin
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(16, 32);
+            this.btnUpdate.Location = new System.Drawing.Point(16, 62);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(130, 23);
             this.btnUpdate.TabIndex = 3;
@@ -136,6 +134,37 @@ namespace WebAPI_Core_Client_Malkin
             this.lbLogin.Name = "lbLogin";
             this.lbLogin.Size = new System.Drawing.Size(0, 13);
             this.lbLogin.TabIndex = 9;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(16, 32);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(130, 23);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Добавить";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // таблицыToolStripMenuItem
+            // 
+            this.таблицыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersToolStripMenuItem,
+            this.userTypesToolStripMenuItem});
+            this.таблицыToolStripMenuItem.Name = "таблицыToolStripMenuItem";
+            this.таблицыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.таблицыToolStripMenuItem.Text = "Таблицы";
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Text = "Users";
+            // 
+            // userTypesToolStripMenuItem
+            // 
+            this.userTypesToolStripMenuItem.Name = "userTypesToolStripMenuItem";
+            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userTypesToolStripMenuItem.Text = "UserTypes";
             // 
             // Main
             // 
@@ -164,12 +193,15 @@ namespace WebAPI_Core_Client_Malkin
         private System.Windows.Forms.DataGridView dgvTable;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label lbLogin;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ToolStripMenuItem таблицыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userTypesToolStripMenuItem;
     }
 }
 

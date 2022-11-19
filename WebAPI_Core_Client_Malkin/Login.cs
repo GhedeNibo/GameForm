@@ -22,7 +22,7 @@ namespace WebAPI_Core_Client_Malkin
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            User currentUser = null;
+            ExtUser currentUser = null;
             var login = tbLogin.Text;
             var password = tbPassword.Text;
             bool result = false;
@@ -34,7 +34,7 @@ namespace WebAPI_Core_Client_Malkin
             {
                 if (user[i].Login == login && user[i].Password == password)
                 {
-                    currentUser = user[i];
+                    currentUser = getCurrentUser(client, user[i].ID);
                     result = true;
                     break;
                 }
@@ -48,6 +48,12 @@ namespace WebAPI_Core_Client_Malkin
             {
                 MessageBox.Show("Неверный логин или пароль");
             }
+        }
+        private ExtUser getCurrentUser(HttpClient httpClient, int id)
+        {
+            HttpResponseMessage resp = httpClient.GetAsync(GameContext.urls + $"/api/ExtUser/{id}").Result;
+            string msg = resp.Content.ReadAsStringAsync().Result;
+            return (ExtUser) JsonConvert.DeserializeObject(msg, typeof(ExtUser));
         }
     }
 }

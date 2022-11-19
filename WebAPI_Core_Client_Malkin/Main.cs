@@ -13,7 +13,7 @@ namespace WebAPI_Core_Client_Malkin
     
     public partial class Main : Form
     {
-        static public User currentUser;
+        static public ExtUser currentUser;
         public Main()
         {
             InitializeComponent();
@@ -90,6 +90,16 @@ namespace WebAPI_Core_Client_Malkin
             using (var client = new HttpClient())
             {
                 var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Game", Num));
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddGame addGame = new AddGame();
+            addGame.Owner = this;
+            if(addGame.ShowDialog() == DialogResult.OK)
+            {
+                btnReload_Click(null, null);
             }
         }
     }

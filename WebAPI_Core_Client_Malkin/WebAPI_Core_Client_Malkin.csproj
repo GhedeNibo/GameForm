@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGame.Designer.cs">
+      <DependentUpon>AddGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameContext.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -56,6 +62,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExtUser.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -67,6 +74,9 @@
     <Compile Include="Models\UserType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddGame.resx">
+      <DependentUpon>AddGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI_Core_Client_Malkin.Models
 {
-    class UserType
+    public class UserType
     {
         public int ID { get; set; }
         public String TypeName { get; set; }
