@@ -29,7 +29,15 @@ namespace WebAPI_Core_Client_Malkin
             }
             
         }
-      
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            if(currentUser == null)
+            {
+                Application.Exit();
+            }
+        }
+
         private void btnReload_Click(object sender, EventArgs e)
         {
             var client = new HttpClient();

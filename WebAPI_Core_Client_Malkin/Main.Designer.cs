@@ -88,13 +88,13 @@ namespace WebAPI_Core_Client_Malkin
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(109, 22);
             this.toolStripMenuItem2.Text = "Войти";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(109, 22);
             this.toolStripMenuItem3.Text = "Выйти";
             // 
             // panel1
@@ -134,9 +134,8 @@ namespace WebAPI_Core_Client_Malkin
             this.lbLogin.AutoSize = true;
             this.lbLogin.Location = new System.Drawing.Point(784, 9);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(36, 13);
+            this.lbLogin.Size = new System.Drawing.Size(0, 13);
             this.lbLogin.TabIndex = 9;
-            this.lbLogin.Text = "Гость";
             // 
             // Main
             // 
@@ -150,6 +149,7 @@ namespace WebAPI_Core_Client_Malkin
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "GamsShop Client";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
