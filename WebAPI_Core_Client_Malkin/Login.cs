@@ -14,9 +14,7 @@ using WebAPI_Core_Client_Malkin.Models;
 namespace WebAPI_Core_Client_Malkin
 {
     public partial class Login : Form
-    {
-        private const string APP_PATH = "http://192.168.1.66:33833";
-        
+    {   
         public Login()
         {
             InitializeComponent();
@@ -29,7 +27,7 @@ namespace WebAPI_Core_Client_Malkin
             var password = tbPassword.Text;
             bool result = false;
             var client = new HttpClient();
-            var response = client.GetAsync(APP_PATH + "/api/User").Result;
+            var response = client.GetAsync(GameContext.urls + "/api/User").Result;
             string msg = response.Content.ReadAsStringAsync().Result;
             List<User> user = (List<User>)JsonConvert.DeserializeObject(msg, typeof(List<User>));
             for (int i = 0; i < user.Count(); i++)

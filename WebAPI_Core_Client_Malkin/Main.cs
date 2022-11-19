@@ -13,7 +13,6 @@ namespace WebAPI_Core_Client_Malkin
     
     public partial class Main : Form
     {
-        private string appPath = GameContext.urls;
         static public User currentUser;
         public Main()
         {
@@ -38,7 +37,7 @@ namespace WebAPI_Core_Client_Malkin
         private void btnReload_Click(object sender, EventArgs e)
         {
             var client = new HttpClient();
-            var response = client.GetAsync(appPath + "/api/Game").Result;
+            var response = client.GetAsync(GameContext.urls + "/api/Game").Result;
             string msg = response.Content.ReadAsStringAsync().Result;
             List<Game> game = (List<Game>)JsonConvert.DeserializeObject(msg, typeof(List<Game>));
             dgvTable.ColumnCount = 5;
@@ -75,7 +74,7 @@ namespace WebAPI_Core_Client_Malkin
             {
                 var serializedGame = JsonConvert.SerializeObject(game);
                 var content = new StringContent(serializedGame, Encoding.UTF8, "application/json");
-                var result = await client.PutAsync(String.Format("{0}/{1}", appPath + "/api/Game", game.ID), content);
+                var result = await client.PutAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Game", game.ID), content);
                 //MessageBox.Show(result.ToString());
             }
         }
@@ -86,7 +85,7 @@ namespace WebAPI_Core_Client_Malkin
             int Num = int.Parse(dgvTable.Rows[selRowNum].Cells[0].Value.ToString());
             using (var client = new HttpClient())
             {
-                var result = await client.DeleteAsync(String.Format("{0}/{1}", appPath + "/api/Game", Num));
+                var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Game", Num));
             }
         }
     }
