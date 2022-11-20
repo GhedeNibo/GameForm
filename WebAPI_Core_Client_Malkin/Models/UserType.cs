@@ -17,5 +17,6 @@ namespace WebAPI_Core_Client_Malkin.Models
         public bool Delete { get; set; }
         public bool DeleteAll { get; set; }
         public bool RezTable { get; set; }
+        public bool EmergTable { get; set; }
     }
 }

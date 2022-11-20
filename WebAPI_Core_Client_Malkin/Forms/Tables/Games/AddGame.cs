@@ -15,6 +15,7 @@ namespace WebAPI_Core_Client_Malkin
 {
     public partial class AddGame : Form
     {
+        public ExtUser currentUser;
         public AddGame()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace WebAPI_Core_Client_Malkin
             game.Description = rtbDescription.Text;
             game.Price = decimal.Parse(tbPrice.Text);
             game.Rating = short.Parse(tbRating.Text);
+            game.OwnerID = currentUser.ID;
             using (var client = new HttpClient())
             {
                 var serializedGame = JsonConvert.SerializeObject(game);
