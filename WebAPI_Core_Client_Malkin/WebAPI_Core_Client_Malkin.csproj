@@ -55,6 +55,12 @@
     <Compile Include="AddGame.Designer.cs">
       <DependentUpon>AddGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddUserType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUserType.Designer.cs">
+      <DependentUpon>AddUserType.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameContext.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -72,16 +78,28 @@
     </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserType.cs" />
+    <Compile Include="UserTypesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserTypesForm.Designer.cs">
+      <DependentUpon>UserTypesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddGame.resx">
       <DependentUpon>AddGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUserType.resx">
+      <DependentUpon>AddUserType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserTypesForm.resx">
+      <DependentUpon>UserTypesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

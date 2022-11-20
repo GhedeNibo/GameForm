@@ -102,5 +102,12 @@ namespace WebAPI_Core_Client_Malkin
                 btnReload_Click(null, null);
             }
         }
+
+        // table UserTypes
+        private void userTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserTypesForm userTypesForm = new UserTypesForm();
+            userTypesForm.Show();
+        }
     }
 }
