@@ -39,6 +39,8 @@ namespace WebAPI_Core_Client_Malkin
             this.cbRezTable = new System.Windows.Forms.CheckBox();
             this.cbDeleteAll = new System.Windows.Forms.CheckBox();
             this.cbDelete = new System.Windows.Forms.CheckBox();
+            this.cbUserTable = new System.Windows.Forms.CheckBox();
+            this.cbEmergTable = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cbRead
@@ -53,7 +55,7 @@ namespace WebAPI_Core_Client_Malkin
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(91, 249);
+            this.btnAdd.Location = new System.Drawing.Point(91, 275);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
@@ -137,11 +139,33 @@ namespace WebAPI_Core_Client_Malkin
             this.cbDelete.Text = "Delete";
             this.cbDelete.UseVisualStyleBackColor = true;
             // 
+            // cbUserTable
+            // 
+            this.cbUserTable.AutoSize = true;
+            this.cbUserTable.Location = new System.Drawing.Point(31, 252);
+            this.cbUserTable.Name = "cbUserTable";
+            this.cbUserTable.Size = new System.Drawing.Size(75, 17);
+            this.cbUserTable.TabIndex = 12;
+            this.cbUserTable.Text = "UserTable";
+            this.cbUserTable.UseVisualStyleBackColor = true;
+            // 
+            // cbEmergTable
+            // 
+            this.cbEmergTable.AutoSize = true;
+            this.cbEmergTable.Location = new System.Drawing.Point(31, 229);
+            this.cbEmergTable.Name = "cbEmergTable";
+            this.cbEmergTable.Size = new System.Drawing.Size(83, 17);
+            this.cbEmergTable.TabIndex = 11;
+            this.cbEmergTable.Text = "EmergTable";
+            this.cbEmergTable.UseVisualStyleBackColor = true;
+            // 
             // AddUserType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 284);
+            this.ClientSize = new System.Drawing.Size(282, 307);
+            this.Controls.Add(this.cbUserTable);
+            this.Controls.Add(this.cbEmergTable);
             this.Controls.Add(this.cbRezTable);
             this.Controls.Add(this.cbDeleteAll);
             this.Controls.Add(this.cbDelete);
@@ -171,5 +195,7 @@ namespace WebAPI_Core_Client_Malkin
         private System.Windows.Forms.CheckBox cbRezTable;
         private System.Windows.Forms.CheckBox cbDeleteAll;
         private System.Windows.Forms.CheckBox cbDelete;
+        private System.Windows.Forms.CheckBox cbUserTable;
+        private System.Windows.Forms.CheckBox cbEmergTable;
     }
 }

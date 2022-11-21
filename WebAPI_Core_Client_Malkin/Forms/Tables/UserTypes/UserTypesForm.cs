@@ -27,7 +27,7 @@ namespace WebAPI_Core_Client_Malkin
             var response = client.GetAsync(GameContext.urls + "/api/UserType").Result;
             string msg = response.Content.ReadAsStringAsync().Result;
             List<UserType> userTypes = (List<UserType>)JsonConvert.DeserializeObject(msg, typeof(List<UserType>));
-            dgvTable.ColumnCount = 9;
+            dgvTable.ColumnCount = 11;
             dgvTable.Rows.Clear();
             dgvTable.Columns[0].HeaderText = "Номер";
             dgvTable.Columns[1].HeaderText = "Название";
@@ -37,7 +37,9 @@ namespace WebAPI_Core_Client_Malkin
             dgvTable.Columns[5].HeaderText = "Редактирование любых записей";
             dgvTable.Columns[6].HeaderText = "Удаление";
             dgvTable.Columns[7].HeaderText = "Удаление любых записей";
-            dgvTable.Columns[8].HeaderText = "Аварийная таблица";
+            dgvTable.Columns[8].HeaderText = "Создание резервных копий";
+            dgvTable.Columns[9].HeaderText = "Аварийная таблица";
+            dgvTable.Columns[10].HeaderText = "Таблица пользоватлей";
 
             for (int i = 0; i < userTypes.Count(); i++)
             {
@@ -51,6 +53,8 @@ namespace WebAPI_Core_Client_Malkin
                 dgvTable[6, i].Value = userTypes[i].Delete;
                 dgvTable[7, i].Value = userTypes[i].DeleteAll;
                 dgvTable[8, i].Value = userTypes[i].RezTable;
+                dgvTable[9, i].Value = userTypes[i].EmergTable;
+                dgvTable[10, i].Value = userTypes[i].UserTable;
             }
         }
 
@@ -77,6 +81,9 @@ namespace WebAPI_Core_Client_Malkin
             userType.Delete = Convert.ToBoolean(dgvTable.Rows[rowIndex].Cells[6].Value);
             userType.Delete = Convert.ToBoolean(dgvTable.Rows[rowIndex].Cells[7].Value);
             userType.DeleteAll = Convert.ToBoolean(dgvTable.Rows[rowIndex].Cells[8].Value);
+            userType.RezTable = Convert.ToBoolean(dgvTable.Rows[rowIndex].Cells[8].Value);
+            userType.EmergTable = Convert.ToBoolean(dgvTable.Rows[rowIndex].Cells[9].Value);
+            userType.UserTable = Convert.ToBoolean(dgvTable.Rows[rowIndex].Cells[10].Value);
             using (var client = new HttpClient())
             {
                 var serializeUserType = JsonConvert.SerializeObject(userType);

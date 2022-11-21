@@ -33,7 +33,7 @@ namespace WebAPI_Core_Client_Malkin
             this.dgvTable = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuAccaunt = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOuttoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTables = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,16 +97,17 @@ namespace WebAPI_Core_Client_Malkin
             // toolStripMenuAccaunt
             // 
             this.toolStripMenuAccaunt.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3});
+            this.logOuttoolStripMenuItem});
             this.toolStripMenuAccaunt.Name = "toolStripMenuAccaunt";
             this.toolStripMenuAccaunt.Size = new System.Drawing.Size(103, 20);
             this.toolStripMenuAccaunt.Text = "Учетная запись";
             // 
-            // toolStripMenuItem3
+            // logOuttoolStripMenuItem
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "Выйти";
+            this.logOuttoolStripMenuItem.Name = "logOuttoolStripMenuItem";
+            this.logOuttoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOuttoolStripMenuItem.Text = "Выйти";
+            this.logOuttoolStripMenuItem.Click += new System.EventHandler(this.logOuttoolStripMenuItem_Click);
             // 
             // toolStripMenuItemTables
             // 
@@ -122,12 +123,11 @@ namespace WebAPI_Core_Client_Malkin
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem.Text = "Users";
-            this.usersToolStripMenuItem.Visible = false;
             // 
             // userTypesToolStripMenuItem
             // 
             this.userTypesToolStripMenuItem.Name = "userTypesToolStripMenuItem";
-            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.userTypesToolStripMenuItem.Text = "UserTypes";
             this.userTypesToolStripMenuItem.Click += new System.EventHandler(this.userTypesToolStripMenuItem_Click);
             // 
@@ -316,7 +316,7 @@ namespace WebAPI_Core_Client_Malkin
         private System.Windows.Forms.DataGridView dgvTable;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuAccaunt;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem logOuttoolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;

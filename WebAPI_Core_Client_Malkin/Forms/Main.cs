@@ -14,22 +14,11 @@ namespace WebAPI_Core_Client_Malkin
     public partial class Main : Form
     {
         static public ExtUser currentUser;
+
         public Main()
         {
             InitializeComponent();
-
-            Login loginForm = new Login();
-            loginForm.Owner = this;
-            
-            if(loginForm.ShowDialog() == DialogResult.OK)
-            {
-                loginForm.Close();
-                lbLogin.Text = currentUser.Login;
-            }
-            if (currentUser != null)
-            {
-                blockInterfce();
-            }
+            showLogin();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -40,12 +29,28 @@ namespace WebAPI_Core_Client_Malkin
             }
         }
 
+        private void showLogin()
+        {
+            Login loginForm = new Login();
+            loginForm.Owner = this;
+
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                loginForm.Close();
+                lbLogin.Text = currentUser.Login;
+            }
+            if (currentUser != null)
+            {
+                blockInterfce();
+            }
+        }
         private void blockInterfce()
         {
             UserType ut = currentUser.UserType;
             if (!ut.Read)
             {
-                btnReload.Visible = false;
+                tcMain.Visible = false;
+                //btnReload.Visible = false;
             }
             else
             {
@@ -54,9 +59,8 @@ namespace WebAPI_Core_Client_Malkin
             }
             if (!ut.Create)
             {
-                tcMain.Visible = false;
-                //btnAdd.Visible = false;
-                //btnAddOwner.Visible = false;
+                btnAdd.Visible = false;
+                btnAddOwner.Visible = false;
             }
             if (!ut.Edit)
             {
@@ -82,6 +86,10 @@ namespace WebAPI_Core_Client_Malkin
             {
                 userTypesToolStripMenuItem.Visible = false;
             }
+            if (!ut.UserTable)
+            {
+                usersToolStripMenuItem.Visible = false;
+            }
         }
 
         // table UserTypes
@@ -89,6 +97,11 @@ namespace WebAPI_Core_Client_Malkin
         {
             UserTypesForm userTypesForm = new UserTypesForm();
             userTypesForm.Show();
+        }
+
+        private void logOuttoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
 
         //
@@ -229,5 +242,6 @@ namespace WebAPI_Core_Client_Malkin
                 var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Game", Num));
             }
         }
+
     }
 }

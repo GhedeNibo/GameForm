@@ -18,6 +18,7 @@ namespace WebAPI_Core_Client_Malkin
         public Login()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)

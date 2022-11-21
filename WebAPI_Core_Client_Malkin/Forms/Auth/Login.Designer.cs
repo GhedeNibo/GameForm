@@ -72,6 +72,7 @@ namespace WebAPI_Core_Client_Malkin
             this.btnRegister.TabIndex = 3;
             this.btnRegister.Text = "Зарегистрироваться";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Visible = false;
             // 
             // tbPassword
             // 
@@ -97,6 +98,7 @@ namespace WebAPI_Core_Client_Malkin
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Нет аккаунта?";
+            this.label3.Visible = false;
             // 
             // Login
             // 

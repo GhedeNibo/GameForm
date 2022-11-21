@@ -32,6 +32,8 @@ namespace WebAPI_Core_Client_Malkin
             userType.Delete = cbDelete.Checked;
             userType.DeleteAll = cbDeleteAll.Checked;
             userType.RezTable = cbRezTable.Checked;
+            userType.EmergTable = cbEmergTable.Checked;
+            userType.UserTable = cbUserTable.Checked;
             using (var client = new HttpClient())
             {
                 var serializedGame = JsonConvert.SerializeObject(userType);
