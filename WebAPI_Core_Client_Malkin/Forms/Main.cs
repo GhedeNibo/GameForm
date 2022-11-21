@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Text;
 using WebAPI_Core_Client_Malkin.Models;
 using System.Threading.Tasks;
+using WebAPI_Core_Client_Malkin.Forms.Tables.Users;
 
 namespace WebAPI_Core_Client_Malkin
 {
@@ -98,11 +99,18 @@ namespace WebAPI_Core_Client_Malkin
             UserTypesForm userTypesForm = new UserTypesForm();
             userTypesForm.Show();
         }
-
+        // table Users
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
+        }
+        // выйти
         private void logOuttoolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
+
 
         //
         //  MAIN
@@ -257,6 +265,5 @@ namespace WebAPI_Core_Client_Malkin
                 var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Game", Num));
             }
         }
-
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using WebAPI_Core_Client_Malkin.Forms.Auth;
 using WebAPI_Core_Client_Malkin.Models;
 
 namespace WebAPI_Core_Client_Malkin
@@ -55,6 +56,12 @@ namespace WebAPI_Core_Client_Malkin
             HttpResponseMessage resp = httpClient.GetAsync(GameContext.urls + $"/api/ExtUser/{id}").Result;
             string msg = resp.Content.ReadAsStringAsync().Result;
             return (ExtUser) JsonConvert.DeserializeObject(msg, typeof(ExtUser));
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.ShowDialog();
         }
     }
 }
