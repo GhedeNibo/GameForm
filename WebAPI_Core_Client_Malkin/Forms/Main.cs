@@ -113,7 +113,15 @@ namespace WebAPI_Core_Client_Malkin
             var response = client.GetAsync(GameContext.urls + "/api/Game").Result;
             string msg = response.Content.ReadAsStringAsync().Result;
             List<Game> game = (List<Game>)JsonConvert.DeserializeObject(msg, typeof(List<Game>));
-            dgvTable.ColumnCount = 5;
+            if (currentUser.UserType.EditAll)
+            {
+                dgvTable.ColumnCount = 6;
+                dgvTable.Columns[5].HeaderText = "Владелец";
+            }
+            else
+            {
+                dgvTable.ColumnCount = 5;
+            }
             dgvTable.Rows.Clear();
             dgvTable.Columns[0].HeaderText = "Номер";
             dgvTable.Columns[1].HeaderText = "Название";
@@ -129,7 +137,10 @@ namespace WebAPI_Core_Client_Malkin
                 dgvTable[2, i].Value = game[i].Description;
                 dgvTable[3, i].Value = game[i].Price.ToString();
                 dgvTable[4, i].Value = game[i].Rating.ToString();
-
+                if (currentUser.UserType.EditAll)
+                {
+                    dgvTable[5, i].Value = game[i].OwnerID.ToString();
+                }
             }
         }
 
@@ -143,6 +154,10 @@ namespace WebAPI_Core_Client_Malkin
             game.Description = dgvTable.Rows[rowIndex].Cells[2].Value.ToString();
             game.Price = Convert.ToDecimal(dgvTable.Rows[rowIndex].Cells[3].Value.ToString());
             game.Rating = short.Parse(dgvTable.Rows[rowIndex].Cells[4].Value.ToString());
+            /*if (currentUser.UserType.EditAll)
+            {*/
+                game.OwnerID = int.Parse(dgvTable.Rows[rowIndex].Cells[5].Value.ToString());
+            //}
             using (var client = new HttpClient())
             {
                 var serializedGame = JsonConvert.SerializeObject(game);
