@@ -38,6 +38,7 @@ namespace WebAPI_Core_Client_Malkin
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAddToBasket = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -51,6 +52,13 @@ namespace WebAPI_Core_Client_Malkin
             this.btnDeleteOwner = new System.Windows.Forms.Button();
             this.btnUpdateOwner = new System.Windows.Forms.Button();
             this.btnReloadOwner = new System.Windows.Forms.Button();
+            this.tabPageBasket = new System.Windows.Forms.TabPage();
+            this.dgvBasket = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteBasket = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnReloadBasket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,6 +67,9 @@ namespace WebAPI_Core_Client_Malkin
             this.tabPageOwner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOwner)).BeginInit();
             this.panel2.SuspendLayout();
+            this.tabPageBasket.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBasket)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnReload
@@ -105,7 +116,7 @@ namespace WebAPI_Core_Client_Malkin
             // logOuttoolStripMenuItem
             // 
             this.logOuttoolStripMenuItem.Name = "logOuttoolStripMenuItem";
-            this.logOuttoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOuttoolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.logOuttoolStripMenuItem.Text = "Выйти";
             this.logOuttoolStripMenuItem.Click += new System.EventHandler(this.logOuttoolStripMenuItem_Click);
             // 
@@ -121,14 +132,14 @@ namespace WebAPI_Core_Client_Malkin
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // userTypesToolStripMenuItem
             // 
             this.userTypesToolStripMenuItem.Name = "userTypesToolStripMenuItem";
-            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.userTypesToolStripMenuItem.Text = "UserTypes";
             this.userTypesToolStripMenuItem.Click += new System.EventHandler(this.userTypesToolStripMenuItem_Click);
             // 
@@ -136,6 +147,7 @@ namespace WebAPI_Core_Client_Malkin
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnAddToBasket);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnUpdate);
@@ -144,6 +156,15 @@ namespace WebAPI_Core_Client_Malkin
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(159, 384);
             this.panel1.TabIndex = 8;
+            // 
+            // btnAddToBasket
+            // 
+            this.btnAddToBasket.Location = new System.Drawing.Point(14, 181);
+            this.btnAddToBasket.Name = "btnAddToBasket";
+            this.btnAddToBasket.Size = new System.Drawing.Size(130, 23);
+            this.btnAddToBasket.TabIndex = 6;
+            this.btnAddToBasket.Text = "Добавить в корзину";
+            this.btnAddToBasket.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
@@ -191,6 +212,7 @@ namespace WebAPI_Core_Client_Malkin
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcMain.Controls.Add(this.tabPageMain);
             this.tcMain.Controls.Add(this.tabPageOwner);
+            this.tcMain.Controls.Add(this.tabPageBasket);
             this.tcMain.Location = new System.Drawing.Point(0, 27);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
@@ -286,6 +308,81 @@ namespace WebAPI_Core_Client_Malkin
             this.btnReloadOwner.UseVisualStyleBackColor = true;
             this.btnReloadOwner.Click += new System.EventHandler(this.btnReloadOwner_Click);
             // 
+            // tabPageBasket
+            // 
+            this.tabPageBasket.Controls.Add(this.dgvBasket);
+            this.tabPageBasket.Controls.Add(this.panel3);
+            this.tabPageBasket.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBasket.Name = "tabPageBasket";
+            this.tabPageBasket.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBasket.Size = new System.Drawing.Size(919, 396);
+            this.tabPageBasket.TabIndex = 2;
+            this.tabPageBasket.Text = "Покупки";
+            this.tabPageBasket.UseVisualStyleBackColor = true;
+            // 
+            // dgvBasket
+            // 
+            this.dgvBasket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvBasket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBasket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBasket.Location = new System.Drawing.Point(7, 6);
+            this.dgvBasket.Name = "dgvBasket";
+            this.dgvBasket.Size = new System.Drawing.Size(740, 384);
+            this.dgvBasket.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnDeleteBasket);
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnReloadBasket);
+            this.panel3.Location = new System.Drawing.Point(753, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(159, 384);
+            this.panel3.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 221);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Добавить";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteBasket
+            // 
+            this.btnDeleteBasket.Location = new System.Drawing.Point(16, 32);
+            this.btnDeleteBasket.Name = "btnDeleteBasket";
+            this.btnDeleteBasket.Size = new System.Drawing.Size(130, 23);
+            this.btnDeleteBasket.TabIndex = 4;
+            this.btnDeleteBasket.Text = "Удалить";
+            this.btnDeleteBasket.UseVisualStyleBackColor = true;
+            this.btnDeleteBasket.Click += new System.EventHandler(this.btnDeleteBasket_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(16, 250);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Изменить";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btnReloadBasket
+            // 
+            this.btnReloadBasket.Location = new System.Drawing.Point(16, 3);
+            this.btnReloadBasket.Name = "btnReloadBasket";
+            this.btnReloadBasket.Size = new System.Drawing.Size(130, 23);
+            this.btnReloadBasket.TabIndex = 2;
+            this.btnReloadBasket.Text = "Обновить";
+            this.btnReloadBasket.UseVisualStyleBackColor = true;
+            this.btnReloadBasket.Click += new System.EventHandler(this.btnReloadBasket_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,6 +404,9 @@ namespace WebAPI_Core_Client_Malkin
             this.tabPageOwner.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOwner)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.tabPageBasket.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBasket)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,6 +435,14 @@ namespace WebAPI_Core_Client_Malkin
         private System.Windows.Forms.Button btnDeleteOwner;
         private System.Windows.Forms.Button btnUpdateOwner;
         private System.Windows.Forms.Button btnReloadOwner;
+        private System.Windows.Forms.Button btnAddToBasket;
+        private System.Windows.Forms.TabPage tabPageBasket;
+        private System.Windows.Forms.DataGridView dgvBasket;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteBasket;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReloadBasket;
     }
 }
 

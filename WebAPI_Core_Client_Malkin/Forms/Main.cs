@@ -265,5 +265,39 @@ namespace WebAPI_Core_Client_Malkin
                 var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Game", Num));
             }
         }
+
+        //
+        // Busket
+        //
+
+        private void btnReloadBasket_Click(object sender, EventArgs e)
+        {
+            var client = new HttpClient();
+            var response = client.GetAsync(GameContext.urls + "/api/Basket/owner/" + currentUser.ID).Result;
+            string msg = response.Content.ReadAsStringAsync().Result;
+            List<Game> game = (List<Game>)JsonConvert.DeserializeObject(msg, typeof(List<Game>));
+            dgvBasket.ColumnCount = 4;
+            dgvBasket.Rows.Clear();
+            dgvBasket.Columns[0].HeaderText = "Номер";
+            dgvBasket.Columns[1].HeaderText = "Id игры";
+            dgvBasket.Columns[2].HeaderText = "Количество";
+            dgvBasket.Columns[3].HeaderText = "Id ";
+            //dgvBasket.Columns[4].HeaderText = "Оценка";
+
+            for (int i = 0; i < game.Count(); i++)
+            {
+                dgvBasket.Rows.Add(); //формируем строку таблицы на форме
+                dgvBasket[0, i].Value = game[i].ID.ToString();
+                dgvBasket[1, i].Value = game[i].NameG;
+                dgvBasket[2, i].Value = game[i].Description;
+                dgvBasket[3, i].Value = game[i].Price.ToString();
+                dgvBasket[4, i].Value = game[i].Rating.ToString();
+            }
+        }
+
+        private void btnDeleteBasket_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
