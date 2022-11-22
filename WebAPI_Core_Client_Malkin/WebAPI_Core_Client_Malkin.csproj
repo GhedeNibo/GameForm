@@ -86,6 +86,8 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Basket.cs" />
+    <Compile Include="Models\ExtBasket.cs" />
     <Compile Include="Models\ExtUser.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Forms\Auth\Login.cs">
