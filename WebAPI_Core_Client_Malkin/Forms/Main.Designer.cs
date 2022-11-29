@@ -354,6 +354,7 @@ namespace WebAPI_Core_Client_Malkin
             this.button1.TabIndex = 5;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // btnDeleteBasket
             // 
@@ -373,6 +374,7 @@ namespace WebAPI_Core_Client_Malkin
             this.button3.TabIndex = 3;
             this.button3.Text = "Изменить";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             // 
             // btnReloadBasket
             // 

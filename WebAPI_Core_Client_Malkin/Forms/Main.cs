@@ -273,7 +273,7 @@ namespace WebAPI_Core_Client_Malkin
         {
             Basket game = new Basket();
             game.ID = 0;
-            game.GameId = dgvTable.CurrentCell.RowIndex;
+            game.GameId = dgvTable.CurrentCell.RowIndex+1;
             game.Count = 1;
             game.UserId = currentUser.ID;
 
@@ -295,9 +295,9 @@ namespace WebAPI_Core_Client_Malkin
             var response = client.GetAsync(GameContext.urls + "/api/UserBasket/owner/" + currentUser.ID).Result;
             string msg = response.Content.ReadAsStringAsync().Result;
             List<ExtBasket> game = (List<ExtBasket>)JsonConvert.DeserializeObject(msg, typeof(List<ExtBasket>));
-            dgvBasket.ColumnCount = 3;
+            dgvBasket.ColumnCount = 4;
             dgvBasket.Rows.Clear();
-            //dgvBasket.Columns[0].HeaderText = "Номер";
+            dgvBasket.Columns[0].HeaderText = "Номер";
             dgvBasket.Columns[1].HeaderText = "Название";
             dgvBasket.Columns[2].HeaderText = "Количество";
             dgvBasket.Columns[3].HeaderText = "Итоговая стимость ";
@@ -306,7 +306,7 @@ namespace WebAPI_Core_Client_Malkin
             for (int i = 0; i < game.Count(); i++)
             {
                 dgvBasket.Rows.Add(); //формируем строку таблицы на форме
-                //dgvBasket[0, i].Value = game[i].ID.ToString();
+                dgvBasket[0, i].Value = game[i].ID.ToString();
                 dgvBasket[1, i].Value = game[i].NameG;
                 dgvBasket[2, i].Value = game[i].Count.ToString();
                 dgvBasket[3, i].Value = game[i].TotalPrice.ToString();
@@ -315,8 +315,8 @@ namespace WebAPI_Core_Client_Malkin
 
         private async void btnDeleteBasket_ClickAsync(object sender, EventArgs e)
         {
-            int selRowNum = dgvOwner.CurrentCell.RowIndex;
-            int Num = int.Parse(dgvOwner.Rows[selRowNum].Cells[0].Value.ToString());
+            int selRowNum = dgvBasket.CurrentCell.RowIndex;
+            int Num = int.Parse(dgvBasket.Rows[selRowNum].Cells[0].Value.ToString());
             using (var client = new HttpClient())
             {
                 var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Basket", Num));
