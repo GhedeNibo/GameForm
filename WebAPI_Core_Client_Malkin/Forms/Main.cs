@@ -269,35 +269,59 @@ namespace WebAPI_Core_Client_Malkin
         //
         // Busket
         //
+        private async void btnAddToBasket_ClickAsync(object sender, EventArgs e)
+        {
+            Basket game = new Basket();
+            game.ID = 0;
+            game.GameId = dgvTable.CurrentCell.RowIndex;
+            game.Count = 1;
+            game.UserId = currentUser.ID;
 
+            using (var client = new HttpClient())
+            {
+                var serializedGame = JsonConvert.SerializeObject(game);
+                var content = new StringContent(serializedGame, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync(GameContext.urls + "/api/Basket", content);
+                if (result.IsSuccessStatusCode)
+                {
+                    DialogResult = DialogResult.OK;
+                }
+                else { MessageBox.Show("Проблемы с добавлением в базу !!??"); }
+            }
+        }
         private void btnReloadBasket_Click(object sender, EventArgs e)
         {
             var client = new HttpClient();
-            var response = client.GetAsync(GameContext.urls + "/api/Basket/owner/" + currentUser.ID).Result;
+            var response = client.GetAsync(GameContext.urls + "/api/UserBasket/owner/" + currentUser.ID).Result;
             string msg = response.Content.ReadAsStringAsync().Result;
-            List<Game> game = (List<Game>)JsonConvert.DeserializeObject(msg, typeof(List<Game>));
-            dgvBasket.ColumnCount = 4;
+            List<ExtBasket> game = (List<ExtBasket>)JsonConvert.DeserializeObject(msg, typeof(List<ExtBasket>));
+            dgvBasket.ColumnCount = 3;
             dgvBasket.Rows.Clear();
-            dgvBasket.Columns[0].HeaderText = "Номер";
-            dgvBasket.Columns[1].HeaderText = "Id игры";
+            //dgvBasket.Columns[0].HeaderText = "Номер";
+            dgvBasket.Columns[1].HeaderText = "Название";
             dgvBasket.Columns[2].HeaderText = "Количество";
-            dgvBasket.Columns[3].HeaderText = "Id ";
+            dgvBasket.Columns[3].HeaderText = "Итоговая стимость ";
             //dgvBasket.Columns[4].HeaderText = "Оценка";
 
             for (int i = 0; i < game.Count(); i++)
             {
                 dgvBasket.Rows.Add(); //формируем строку таблицы на форме
-                dgvBasket[0, i].Value = game[i].ID.ToString();
+                //dgvBasket[0, i].Value = game[i].ID.ToString();
                 dgvBasket[1, i].Value = game[i].NameG;
-                dgvBasket[2, i].Value = game[i].Description;
-                dgvBasket[3, i].Value = game[i].Price.ToString();
-                dgvBasket[4, i].Value = game[i].Rating.ToString();
+                dgvBasket[2, i].Value = game[i].Count.ToString();
+                dgvBasket[3, i].Value = game[i].TotalPrice.ToString();
             }
         }
 
-        private void btnDeleteBasket_Click(object sender, EventArgs e)
+        private async void btnDeleteBasket_ClickAsync(object sender, EventArgs e)
         {
-
+            int selRowNum = dgvOwner.CurrentCell.RowIndex;
+            int Num = int.Parse(dgvOwner.Rows[selRowNum].Cells[0].Value.ToString());
+            using (var client = new HttpClient())
+            {
+                var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Basket", Num));
+            }
         }
+
     }
 }

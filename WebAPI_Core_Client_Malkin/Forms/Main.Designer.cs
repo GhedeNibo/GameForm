@@ -165,6 +165,7 @@ namespace WebAPI_Core_Client_Malkin
             this.btnAddToBasket.TabIndex = 6;
             this.btnAddToBasket.Text = "Добавить в корзину";
             this.btnAddToBasket.UseVisualStyleBackColor = true;
+            this.btnAddToBasket.Click += new System.EventHandler(this.btnAddToBasket_ClickAsync);
             // 
             // btnAdd
             // 
@@ -362,7 +363,7 @@ namespace WebAPI_Core_Client_Malkin
             this.btnDeleteBasket.TabIndex = 4;
             this.btnDeleteBasket.Text = "Удалить";
             this.btnDeleteBasket.UseVisualStyleBackColor = true;
-            this.btnDeleteBasket.Click += new System.EventHandler(this.btnDeleteBasket_Click);
+            this.btnDeleteBasket.Click += new System.EventHandler(this.btnDeleteBasket_ClickAsync);
             // 
             // button3
             // 
