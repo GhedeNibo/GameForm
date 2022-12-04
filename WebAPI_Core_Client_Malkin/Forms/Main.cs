@@ -47,6 +47,9 @@ namespace WebAPI_Core_Client_Malkin
         }
         private void blockInterfce()
         {
+            btnReload.Visible = false;
+            btnReloadOwner.Visible = false;
+            btnReloadBasket.Visible = false;
             UserType ut = currentUser.UserType;
             if (!ut.Read)
             {
@@ -57,11 +60,13 @@ namespace WebAPI_Core_Client_Malkin
             {
                 btnReload_Click(null, null);
                 btnReloadOwner_Click(null, null);
+                btnReloadBasket_Click(null, null);
             }
             if (!ut.Create)
             {
                 btnAdd.Visible = false;
                 btnAddOwner.Visible = false;
+                //tabPageOwner.Dispose();
             }
             if (!ut.Edit)
             {
@@ -90,6 +95,10 @@ namespace WebAPI_Core_Client_Malkin
             if (!ut.UserTable)
             {
                 usersToolStripMenuItem.Visible = false;
+            }
+            if(!ut.EmergTable && !ut.UserTable)
+            {
+                toolStripMenuItemTables.Visible = false;
             }
         }
 
@@ -288,6 +297,8 @@ namespace WebAPI_Core_Client_Malkin
                 }
                 else { MessageBox.Show("Проблемы с добавлением в базу !!??"); }
             }
+            btnReloadBasket_Click(null, null);
+            tcMain.SelectedIndex = 2;
         }
         private void btnReloadBasket_Click(object sender, EventArgs e)
         {
@@ -321,6 +332,7 @@ namespace WebAPI_Core_Client_Malkin
             {
                 var result = await client.DeleteAsync(String.Format("{0}/{1}", GameContext.urls + "/api/Basket", Num));
             }
+            btnReloadBasket_Click(null, null);
         }
 
     }

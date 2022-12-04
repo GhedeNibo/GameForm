@@ -132,14 +132,14 @@ namespace WebAPI_Core_Client_Malkin
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // userTypesToolStripMenuItem
             // 
             this.userTypesToolStripMenuItem.Name = "userTypesToolStripMenuItem";
-            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.userTypesToolStripMenuItem.Text = "UserTypes";
             this.userTypesToolStripMenuItem.Click += new System.EventHandler(this.userTypesToolStripMenuItem_Click);
             // 

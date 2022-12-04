@@ -27,7 +27,7 @@ namespace WebAPI_Core_Client_Malkin.Forms.Tables.Users
             var response = client.GetAsync(GameContext.urls + "/api/User").Result;
             string msg = response.Content.ReadAsStringAsync().Result;
             List<User> users = (List<User>)JsonConvert.DeserializeObject(msg, typeof(List<User>));
-            dgvTable.ColumnCount = 11;
+            dgvTable.ColumnCount = 4;
             dgvTable.Rows.Clear();
             dgvTable.Columns[0].HeaderText = "Номер";
             dgvTable.Columns[1].HeaderText = "Логин";
