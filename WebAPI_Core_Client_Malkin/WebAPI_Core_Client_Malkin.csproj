@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Archives\Archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Archives\Archive.Designer.cs">
+      <DependentUpon>Archive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Auth\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Archives\Archive.resx">
+      <DependentUpon>Archive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Auth\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>

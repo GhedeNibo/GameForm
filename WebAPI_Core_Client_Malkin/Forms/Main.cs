@@ -8,6 +8,7 @@ using System.Text;
 using WebAPI_Core_Client_Malkin.Models;
 using System.Threading.Tasks;
 using WebAPI_Core_Client_Malkin.Forms.Tables.Users;
+using WebAPI_Core_Client_Malkin.Forms.Archives;
 
 namespace WebAPI_Core_Client_Malkin
 {
@@ -86,7 +87,7 @@ namespace WebAPI_Core_Client_Malkin
             }
             if (!ut.RezTable)
             {
-                //
+                archiveToolStripMenuItem.Visible = false;
             }
             if (!ut.EmergTable)
             {
@@ -102,6 +103,10 @@ namespace WebAPI_Core_Client_Malkin
             }
         }
 
+        //
+        // ToolStrip
+        //
+
         // table UserTypes
         private void userTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -114,6 +119,14 @@ namespace WebAPI_Core_Client_Malkin
             UsersForm usersForm = new UsersForm();
             usersForm.Show();
         }
+
+        // архивация
+        private void archiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Archive archive = new Archive();
+            archive.Show();
+        }
+
         // выйти
         private void logOuttoolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -334,6 +347,5 @@ namespace WebAPI_Core_Client_Malkin
             }
             btnReloadBasket_Click(null, null);
         }
-
     }
 }

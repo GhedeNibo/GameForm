@@ -59,6 +59,7 @@ namespace WebAPI_Core_Client_Malkin
             this.btnDeleteBasket = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnReloadBasket = new System.Windows.Forms.Button();
+            this.archiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -98,7 +99,8 @@ namespace WebAPI_Core_Client_Malkin
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuAccaunt,
-            this.toolStripMenuItemTables});
+            this.toolStripMenuItemTables,
+            this.archiveToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(927, 24);
@@ -132,14 +134,14 @@ namespace WebAPI_Core_Client_Malkin
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.usersToolStripMenuItem.Text = "Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // userTypesToolStripMenuItem
             // 
             this.userTypesToolStripMenuItem.Name = "userTypesToolStripMenuItem";
-            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userTypesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.userTypesToolStripMenuItem.Text = "UserTypes";
             this.userTypesToolStripMenuItem.Click += new System.EventHandler(this.userTypesToolStripMenuItem_Click);
             // 
@@ -386,6 +388,13 @@ namespace WebAPI_Core_Client_Malkin
             this.btnReloadBasket.UseVisualStyleBackColor = true;
             this.btnReloadBasket.Click += new System.EventHandler(this.btnReloadBasket_Click);
             // 
+            // archiveToolStripMenuItem
+            // 
+            this.archiveToolStripMenuItem.Name = "archiveToolStripMenuItem";
+            this.archiveToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.archiveToolStripMenuItem.Text = "Архивация";
+            this.archiveToolStripMenuItem.Click += new System.EventHandler(this.archiveToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +455,7 @@ namespace WebAPI_Core_Client_Malkin
         private System.Windows.Forms.Button btnDeleteBasket;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnReloadBasket;
+        private System.Windows.Forms.ToolStripMenuItem archiveToolStripMenuItem;
     }
 }
 
